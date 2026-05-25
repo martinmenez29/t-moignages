@@ -214,7 +214,6 @@
 
     /* ── VIDEO CARD ── */
     .video-card {
-      text-decoration: none;
       color: #0f2d52;
       display: block;
       transition: border-color 0.2s;
@@ -227,7 +226,8 @@
       width: 100%;
       aspect-ratio: 16/9;
       overflow: hidden;
-      background: #e5e7eb;
+      background: #000;
+      cursor: pointer;
     }
 
     .video-thumb img {
@@ -235,6 +235,17 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: opacity 0.2s;
+    }
+
+    .video-thumb:hover img { opacity: 0.85; }
+
+    .video-thumb iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .play-btn {
@@ -250,6 +261,13 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 12px rgba(220,53,69,0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+      pointer-events: none;
+    }
+
+    .video-thumb:hover .play-btn {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(220,53,69,0.5);
     }
 
     .play-btn svg {
@@ -258,6 +276,17 @@
       fill: #fff;
       margin-left: 3px;
     }
+
+    .yt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #9ca3af;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .yt-link:hover { color: #dc3545; }
 
     .video-body {
       padding: 20px;
@@ -491,7 +520,7 @@
   <div class="section-label">Témoignages vidéo</div>
 
   <!-- Selly Doridot -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=zLk2ajGQFb0" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="zLk2ajGQFb0">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/zLk2ajGQFb0/hqdefault.jpg" alt="Selly Doridot" loading="lazy" onerror="this.src='https://img.youtube.com/vi/zLk2ajGQFb0/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -505,17 +534,18 @@
       </div>
       <div class="quote">« Martin intervient dans toute la partie automatisation de mon process. Il est force de proposition. Ça a été vraiment un avant et après. »</div>
       <span class="result-pill">⚡ 11 webinaires · 3 483 inscrits · 216 RDV</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=zLk2ajGQFb0" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- Claire Latourre -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=zZq-5pQ3Fh0" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="zZq-5pQ3Fh0">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/zZq-5pQ3Fh0/hqdefault.jpg" alt="Claire Latourre" loading="lazy" onerror="this.src='https://img.youtube.com/vi/zZq-5pQ3Fh0/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
     </div>
     <div class="video-body">
-      <span class="tag">Systèmes & Stratégie</span>
+      <span class="tag">Systèmes &amp; Stratégie</span>
       <div class="client-name">Claire Latourre</div>
       <div class="client-company">Fondatrice — Business Rise</div>
       <div class="pills-row">
@@ -523,11 +553,12 @@
       </div>
       <div class="quote">« Je te remercie pour tout le temps ultra conséquent que tu fais gagner à l'entreprise […] pour libérer du temps, de l'énergie mentale, de gagner en clarté, de fluidifier. »</div>
       <span class="result-pill">⚡ 7 200€/an économisés · zéro interruption</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=zZq-5pQ3Fh0" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- Olivier Alain -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=RLD0j7mi5tE" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="RLD0j7mi5tE">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/RLD0j7mi5tE/hqdefault.jpg" alt="Olivier Alain" loading="lazy" onerror="this.src='https://img.youtube.com/vi/RLD0j7mi5tE/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -542,11 +573,12 @@
       </div>
       <div class="quote">« On a obtenu des résultats très intéressants et surtout on a gagné énormément de temps puisque c'était ma véritable doublure. »</div>
       <span class="result-pill">⚡ ~400 000€ sur un lancement</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=RLD0j7mi5tE" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- Charlotte Kerbrat -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=7aX73Wue6Wg" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="7aX73Wue6Wg">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/7aX73Wue6Wg/hqdefault.jpg" alt="Charlotte Kerbrat" loading="lazy" onerror="this.src='https://img.youtube.com/vi/7aX73Wue6Wg/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -561,11 +593,12 @@
       </div>
       <div class="quote">« Martin m'a vraiment aidé à trouver les mots pour convertir. C'est pas une vision juste copywriting, c'est quelque chose de plus complet. »</div>
       <span class="result-pill">⚡ 70 → 4 000 clientes accompagnées</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=7aX73Wue6Wg" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- Baptiste Piocelle -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=R1oOH1Y8-Jg" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="R1oOH1Y8-Jg">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/R1oOH1Y8-Jg/hqdefault.jpg" alt="Baptiste Piocelle" loading="lazy" onerror="this.src='https://img.youtube.com/vi/R1oOH1Y8-Jg/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -576,11 +609,12 @@
       <div class="client-company">CEO — BPC Group</div>
       <div class="quote">« En 5-6 jours il a réussi à construire un système de génération de leads basé sur l'IA. On peut générer des centaines de leads en moins d'une heure. »</div>
       <span class="result-pill">⚡ 35-45h/sem → 10-15h · livré en 5 jours</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=R1oOH1Y8-Jg" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- Justin Denis -->
-  <a class="card video-card" href="https://www.youtube.com/watch?v=Nx7BTB4fvI0" target="_blank" rel="noopener">
+  <div class="card video-card" data-video-id="Nx7BTB4fvI0">
     <div class="video-thumb">
       <img src="https://img.youtube.com/vi/Nx7BTB4fvI0/hqdefault.jpg" alt="Justin Denis" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Nx7BTB4fvI0/mqdefault.jpg'" />
       <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -591,8 +625,9 @@
       <div class="client-company">Fondateur — Silverback Consulting</div>
       <div class="quote">« Mes clients sont ravis d'avoir plus d'informations. Moi je gagne du temps. C'est une augmentation de la valeur de mon service. »</div>
       <span class="result-pill">⚡ Valeur service augmentée · clients plus engagés</span>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=Nx7BTB4fvI0" target="_blank" rel="noopener">↗ Voir sur YouTube</a>
     </div>
-  </a>
+  </div>
 
   <!-- WRITTEN TESTIMONIALS -->
   <div class="section-label" style="margin-top: 32px;">Avis écrits</div>
@@ -620,7 +655,7 @@
         <div class="avatar">A</div>
         <div class="written-meta">
           <div class="written-name">Alexandre Acaries</div>
-          <div class="written-company">Self-défense & Arts martiaux</div>
+          <div class="written-company">Self-défense &amp; Arts martiaux</div>
         </div>
         <span class="tag">Pages de vente</span>
       </div>
@@ -656,6 +691,21 @@
 </div>
 
 <div class="footer">Martin Menez · Architecte de Systèmes Automatisés</div>
+
+<script>
+  document.querySelectorAll('.video-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var card = this.closest('.video-card');
+      var videoId = card.dataset.videoId;
+      this.innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + videoId +
+        '?autoplay=1&rel=0" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>';
+      this.style.cursor = 'default';
+    });
+  });
+<\/script>
 
 </body>
 </html>
